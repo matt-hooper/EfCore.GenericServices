@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/RazorPageApp/bin/Debug/netcoreapp2.0/RazorPageApp.dll",
+            "program": "${workspaceFolder}/RazorPageApp/bin/Debug/netcoreapp3.1/RazorPageApp.dll",
             "args": [],
             "cwd": "${workspaceFolder}/RazorPageApp",
             "stopAtEntry": false,

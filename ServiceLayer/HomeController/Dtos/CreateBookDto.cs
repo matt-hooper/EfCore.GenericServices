@@ -40,22 +40,18 @@ namespace ServiceLayer.HomeController.Dtos
 
         public struct KeyName
         {
-            public KeyName(int authorId, string name)
-            {
-                AuthorId = authorId;
-                Name = name;
-            }
-
-            public int AuthorId { get; }
-            public string Name { get; }
+            public int AuthorId { get; set; }
+            public string Name { get; set; }
         }
 
         public List<KeyName> AllPossibleAuthors { get; private set; }
 
         public void BeforeDisplay(DbContext context)
         {
-            AllPossibleAuthors = context.Set<Author>().Select(x => new KeyName(x.AuthorId, x.Name))
-                .OrderBy(x => x.Name).ToList();
+            //AllPossibleAuthors = context.Set<Author>().Select(x => new KeyName(x.AuthorId, x.Name)).ToList();            
+            AllPossibleAuthors = context.Set<Author>().Select(x => new KeyName() { AuthorId = x.AuthorId, Name = x.Name } )
+               .OrderBy(x => x.Name).ToList();
+            // //AllPossibleAuthors = new List<KeyName>() { new KeyName(1, "John"), new KeyName(2, "Paul"), new KeyName(3, "Ringo"), new KeyName(4, "George") };
         }
 
         public List<int> BookAuthorIds { get; set; } = new List<int>();

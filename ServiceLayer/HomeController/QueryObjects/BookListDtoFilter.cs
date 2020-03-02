@@ -36,7 +36,7 @@ namespace ServiceLayer.HomeController.QueryObjects
                 case BooksFilterBy.ByVotes:
                     var filterVote = int.Parse(filterValue);     
                     return books.Where(x =>                      
-                          x.ReviewsAverageVotes > filterVote);   
+                          x.ReviewsAverageVotes >= filterVote);   
                 case BooksFilterBy.ByPublicationYear:             
                     if (filterValue == AllBooksNotPublishedString)
                         return books.Where(                       
